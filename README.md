@@ -1,5 +1,7 @@
-# Kebab Chefs! - Restaurant Simulator Mods
- 
+# Experimental Kebab Chefs! - Restaurant Simulator Mods
+
+* Multiplayer - Tries to increase the maximum allowed player count of 4 up to 6
+
 ## Install Instructions
 - Install BepInEx 5 using the [official instructions](https://docs.bepinex.dev/articles/user_guide/installation/index.html)
 - [Download](https://github.com/Dino0040/UnhealthyKebab/releases/latest) the plugin(s) you want to install
