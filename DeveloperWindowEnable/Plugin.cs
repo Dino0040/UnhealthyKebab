@@ -17,18 +17,18 @@ public class Plugin : BaseUnityPlugin
         logger.LogMessage("More Players mod loaded!");
     }
 
-    [HarmonyPrefix]
-    [HarmonyPatch(typeof(PhotonMultiplayerHandler), nameof(PhotonMultiplayerHandler.OnClickCreateRoom))]
-    static void SetMaxPlayersTo6(string roomName, string roomPassword, ref int maxPlayers, bool inviteOnly)
-    {
-        maxPlayers = 6;
-        logger.LogMessage("Enabled 6 Players!");
-    }
-
     [HarmonyPostfix]
     [HarmonyPatch(typeof(photonButtons), "Start")]
     static void AddMoreOptionsToPlayerDropdown(photonButtons __instance)
     {
         __instance.maxPlayerDropdown.AddOptions(new System.Collections.Generic.List<string>(new string[] { "5", "6" }));
+    }
+
+    [HarmonyPrefix]
+    [HarmonyPatch(typeof(DartGame), nameof(DartGame.ResetBoard))]
+    static bool DisableDartGame(DartGame __instance)
+    {
+        __instance.gameObject.SetActive(false);
+        return false;
     }
 }
